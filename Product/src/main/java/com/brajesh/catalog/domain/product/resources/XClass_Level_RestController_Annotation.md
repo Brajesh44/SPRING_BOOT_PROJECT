@@ -36,12 +36,12 @@ while delegating all business logic to the application layer.”
 ## 1⃣ Serialization Flow (Important)
 ```mermaid
 flowchart TD
-    A[Client Request]
-    B[@RestController]
-    C[Return Object]
-    D[HttpMessageConverter]
-    E[JSON / XML]
-    F[HTTP Response Body]
+    A["Client Request"]
+    B["@RestController"]
+    C["Return Object"]
+    D["HttpMessageConverter"]
+    E["JSON / XML"]
+    F["HTTP Response Body"]
 
     A --> B
     B --> C
@@ -74,18 +74,18 @@ flowchart TD
 
 ## ❌ Not Recommended at Controller Class Level (Breaks SRP)
 
-| Annotation | Reason | Correct Layer |
-|----------|--------|---------------|
-| `@Transactional` | Business / transaction concern | Service |
-| `@PreAuthorize` | Authorization rule | Method / Security |
-| `@RolesAllowed` | Authorization rule | Method / Security |
-| `@Profile` | Environment configuration | Configuration |
-| `@ConditionalOnProperty` | Feature toggle | Configuration |
-| `@Service` | Business logic | Service |
-| `@Repository` | Persistence logic | Repository |
-| `@Component` | Generic stereotype | Redundant |
-| `@Configuration` | Bean configuration | Configuration |
-| `@Entity` | Database mapping | Domain |
+| Annotation               | Reason                         | Correct Layer     |
+|--------------------------|--------------------------------|-------------------|
+| `@Transactional`         | Business / transaction concern | Service           |
+| `@PreAuthorize`          | Authorization rule             | Method / Security |
+| `@RolesAllowed`          | Authorization rule             | Method / Security |
+| `@Profile`               | Environment configuration      | Configuration     |
+| `@ConditionalOnProperty` | Feature toggle                 | Configuration     |
+| `@Service`               | Business logic                 | Service           |
+| `@Repository`            | Persistence logic              | Repository        |
+| `@Component`             | Generic stereotype             | Redundant         |
+| `@Configuration`         | Bean configuration             | Configuration     |
+| `@Entity`                | Database mapping               | Domain            |
 
 ---
 
