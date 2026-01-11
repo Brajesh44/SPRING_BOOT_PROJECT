@@ -176,66 +176,71 @@ The **complete lifecycle** of a Spring Boot application from **startup to shutdo
 ## 🎯 One-Line Interview Answer
 
 > The bootstrap lifecycle handles **startup and initialization**, while the Spring Boot application lifecycle covers **startup, runtime operations, and graceful shutdown**.
+
+
 ```mermaid
 flowchart TD
 
-    A[@SpringBootApplication]
+A["@SpringBootApplication"]
 
-A --> B[@SpringBootConfiguration]
-B --> B1[@Configuration]
+A --> B["@SpringBootConfiguration"]
+B --> B1["@Configuration"]
 
-A --> C[@EnableAutoConfiguration]
-C --> C1[AutoConfigurationImportSelector]
-C1 --> C2[Loads auto configurations from classpath]
+A --> C["@EnableAutoConfiguration"]
+C --> C1["AutoConfigurationImportSelector"]
+C1 --> C2["Loads auto configurations from classpath"]
 
-C --> C3[Auto configures transaction management]
-C3 --> C4[@EnableTransactionManagement]
-C4 --> C5[Spring AOP infrastructure]
-C5 --> C6[Transactional processing]
-C6 --> C7[AOP Proxies]
-C7 --> C8[JDK Dynamic Proxy]
-C7 --> C9[CGLIB Proxy]
+C --> C3["Auto configures transaction management"]
+C3 --> C4["@EnableTransactionManagement"]
+C4 --> C5["Spring AOP infrastructure"]
+C5 --> C6["Transactional processing"]
+C6 --> C7["AOP Proxies"]
+C7 --> C8["JDK Dynamic Proxy"]
+C7 --> C9["CGLIB Proxy"]
 
-C6 --> T[@Transactional]
-T --> T1[Service methods]
-T --> T2[Repository methods]
-T --> T3[Controller methods not recommended]
+C6 --> T["@Transactional"]
+T --> T1["Service methods"]
+T --> T2["Repository methods"]
+T --> T3["Controller methods (not recommended)"]
 
-A --> D[@ComponentScan]
-D --> D1[@Component]
+A --> D["@ComponentScan"]
+D --> D1["@Component"]
 
-D1 --> S[@Service]
-S --> S1[Business Logic Layer]
-S1 --> S2[Most common Transactional location]
+D1 --> S["@Service"]
+S --> S1["Business Logic Layer"]
+S1 --> S2["Most common Transactional location"]
 
-D1 --> R[@Repository]
-R --> R1[Persistence Layer]
-R1 --> R2[Exception Translation]
-R1 --> R3[Transactional support]
+D1 --> R["@Repository"]
+R --> R1["Persistence Layer"]
+R1 --> R2["Exception Translation"]
+R1 --> R3["Transactional support"]
 
-D1 --> Ctl[@Controller]
-Ctl --> RC[@RestController]
-RC --> RC1[Controller]
-RC --> RC2[ResponseBody]
+D1 --> Ctl["@Controller"]
+Ctl --> RC["@RestController"]
+RC --> RC1["Controller"]
+RC --> RC2["@ResponseBody"]
 
-A --> E[Conditional Features]
-E --> E1[@EnableScheduling]
-E --> E2[@EnableAsync]
-E --> E3[@EnableCaching]
+A --> E["Conditional Features"]
+E --> E1["@EnableScheduling"]
+E --> E2["@EnableAsync"]
+E --> E3["@EnableCaching"]
 
-A --> W[Web Concerns]
-W --> W1[@RequestMapping]
-W1 --> W11[@GetMapping]
-W1 --> W12[@PostMapping]
-W1 --> W13[@PutMapping]
-W1 --> W14[@PatchMapping]
-W1 --> W15[@DeleteMapping]
+A --> W["Web Concerns"]
+W --> W1["@RequestMapping"]
+W1 --> W11["@GetMapping"]
+W1 --> W12["@PostMapping"]
+W1 --> W13["@PutMapping"]
+W1 --> W14["@PatchMapping"]
+W1 --> W15["@DeleteMapping"]
 
-W --> V1[@Validated]
-W --> V2[@Valid]
-W --> V3[@CrossOrigin]
+W --> V1["@Validated"]
+W --> V2["@Valid"]
+W --> V3["@CrossOrigin"]
 
 ```
+```text
+
+
 @SpringBootApplication
 ├── composed of @SpringBootConfiguration
 │   └── @Configuration
@@ -285,6 +290,7 @@ W --> V3[@CrossOrigin]
 ├── @Validated
 ├── @Valid
 └── @CrossOrigin
+```
 
 # 1️⃣ How `Enable OR Disable (package, class, bean, and property)` Works
 ```java
