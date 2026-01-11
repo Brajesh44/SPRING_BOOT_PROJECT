@@ -35,18 +35,20 @@ while delegating all business logic to the application layer.”
 
 ## 1⃣ Serialization Flow (Important)
 ```mermaid
+flowchart TD
+    A[Client Request]
+    B[@RestController]
+    C[Return Object]
+    D[HttpMessageConverter]
+    E[JSON / XML]
+    F[HTTP Response Body]
 
-                Client Request
-                ↓
-                @RestController
-                ↓
-                Return Object
-                ↓
-                HttpMessageConverter
-                ↓
-                JSON/XML
-                ↓
-                HTTP Response Body
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+
 ```
 # Controller-Level Annotations (Class-Level Only)
 

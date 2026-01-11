@@ -26,6 +26,7 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+	implementation ("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
@@ -35,6 +36,14 @@ dependencies {
 	testImplementation("org.testcontainers:testcontainers-junit-jupiter")
 	testImplementation("org.testcontainers:testcontainers-mongodb")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	testImplementation ("org.springframework.boot:spring-boot-starter-test")
+	testImplementation ("org.springframework.restdocs:spring-restdocs-webtestclient")
+	testImplementation("org.springframework.boot:spring-boot-test-autoconfigure:3.2.6")
+	testImplementation("io.rest-assured:rest-assured")
+	testImplementation("io.rest-assured:rest-assured:5.3.2")
+	testImplementation("org.hamcrest:hamcrest:2.2")
+
+
 }
 
 tasks.withType<Test> {

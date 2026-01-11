@@ -28,7 +28,7 @@ same for all Mapping
 
 | Annotation       | HTTP Method | CRUD Action | Typical REST Use        | Update Type        | Idempotent |
 |------------------|-------------|-------------|-------------------------|--------------------|------------|
-| @GetMapping      | GET         | **Read**    | Read resource(s)        | N/A                | ✅ Yes      |
+| `@GetMapping`    | GET         | **Read**    | Read resource(s)        | N/A                | ✅ Yes      |
 | `@PostMapping`   | POST        | **Create**  | Create resource         | N/A                | ❌ No       |
 | `@PutMapping`    | PUT         | **Update**  | Replace entire resource | **Full Update**    | ✅ Yes      |
 | `@PatchMapping`  | PATCH       | **Update**  | Partial update          | **Partial Update** | ⚠️ Depends |
